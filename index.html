@@ -5,14 +5,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saumil Patel - Full Stack Developer & UX Designer</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Hero gradient background */
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        /* Typewriter effect */
+        .typewriter {
+            border-right: 2px solid white;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { border-color: white; }
+            51%, 100% { border-color: transparent; }
+        }
+
+        /* Section fade animations */
+        .section-fade {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .section-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Card hover effects */
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Skill icon hover effects */
+        .skill-icon {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .skill-icon:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #764ba2;
+        }
+    </style>
 </head>
 <body class="bg-gray-50 font-sans">
     <!-- Navigation -->
     <nav class="bg-white shadow-sm fixed w-full top-0 z-50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
-                <div class="text-2xl font-bold text-gray-800">Saumil Patel</div>
+                <div class="flex items-center space-x-3">
+                    <svg viewBox="0 0 40 40" class="w-10 h-10">
+                        <defs>
+                            <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="40" height="40" rx="8" fill="url(#logoGrad)"/>
+                        <text x="20" y="28" text-anchor="middle" fill="white" font-size="18" font-weight="bold" font-family="Arial, sans-serif">SP</text>
+                        <circle cx="30" cy="10" r="3" fill="rgba(255,255,255,0.3)"/>
+                        <circle cx="10" cy="30" r="2" fill="rgba(255,255,255,0.2)"/>
+                    </svg>
+                    <div class="text-2xl font-bold text-gray-800">Saumil Patel</div>
+                </div>
                 <div class="hidden md:flex space-x-8">
                     <a href="#home" class="text-gray-600 hover:text-purple-600 transition-colors">Home</a>
                     <a href="#about" class="text-gray-600 hover:text-purple-600 transition-colors">About</a>
@@ -65,8 +150,10 @@
                 <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">About Me</h2>
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <div class="bg-gradient-to-br from-purple-400 to-blue-500 rounded-2xl h-80 flex items-center justify-center text-white text-6xl">
-                            👨‍💻
+                        <div class="bg-gradient-to-br from-purple-400 to-blue-500 rounded-2xl h-80 flex items-center justify-center overflow-hidden">
+                            <!-- Replace 'your-photo.jpg' with your actual image file -->
+                            <img src="your-photo.jpg" alt="Saumil Patel - Full Stack Developer" class="w-full h-full object-cover rounded-2xl" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="text-white text-6xl hidden">👨‍💻</div>
                         </div>
                     </div>
                     <div class="space-y-6">
@@ -191,8 +278,12 @@
                 <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Case Study: Nuit Blanche Toronto 2025</h2>
                 
                 <!-- Hero Image -->
-                <div class="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-3xl h-64 mb-12 flex items-center justify-center text-white text-2xl font-bold">
-                    🎨 Nuit Blanche Toronto 2025 - Enhanced Visitor Experience
+                <div class="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-3xl h-64 mb-12 flex items-center justify-center overflow-hidden relative">
+                    <!-- Replace 'nuit-blanche-hero.jpg' with your actual case study hero image -->
+                    <img src="nuit-blanche-hero.jpg" alt="Nuit Blanche Toronto 2025 Project Overview" class="w-full h-full object-cover rounded-3xl" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="text-white text-2xl font-bold hidden absolute inset-0 flex items-center justify-center bg-gradient-to-r from-indigo-500 to-purple-600">
+                        🎨 Nuit Blanche Toronto 2025 - Enhanced Visitor Experience
+                    </div>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-12 mb-16">
@@ -244,24 +335,65 @@
                     <h3 class="text-3xl font-bold mb-12 text-center text-gray-800">Design Process</h3>
                     <div class="grid md:grid-cols-4 gap-6">
                         <div class="bg-white rounded-2xl p-6 text-center card-hover">
-                            <div class="text-4xl mb-4">🔍</div>
+                            <div class="h-16 mb-4 flex items-center justify-center">
+                                <!-- Replace with your research process image -->
+                                <img src="research-process.jpg" alt="Research Process" class="w-12 h-12 object-cover rounded-lg" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <div class="text-4xl hidden">🔍</div>
+                            </div>
                             <h4 class="font-bold mb-3 text-gray-800">Research</h4>
                             <p class="text-gray-600 text-sm">User interviews, accessibility audits, and competitor analysis</p>
                         </div>
                         <div class="bg-white rounded-2xl p-6 text-center card-hover">
-                            <div class="text-4xl mb-4">📋</div>
+                            <div class="h-16 mb-4 flex items-center justify-center">
+                                <!-- Replace with your planning process image -->
+                                <img src="planning-process.jpg" alt="Planning Process" class="w-12 h-12 object-cover rounded-lg" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <div class="text-4xl hidden">📋</div>
+                            </div>
                             <h4 class="font-bold mb-3 text-gray-800">Planning</h4>
                             <p class="text-gray-600 text-sm">Information architecture, user flows, and accessibility requirements</p>
                         </div>
                         <div class="bg-white rounded-2xl p-6 text-center card-hover">
-                            <div class="text-4xl mb-4">🎨</div>
+                            <div class="h-16 mb-4 flex items-center justify-center">
+                                <!-- Replace with your prototyping process image -->
+                                <img src="prototyping-process.jpg" alt="Prototyping Process" class="w-12 h-12 object-cover rounded-lg" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <div class="text-4xl hidden">🎨</div>
+                            </div>
                             <h4 class="font-bold mb-3 text-gray-800">Prototyping</h4>
                             <p class="text-gray-600 text-sm">Interactive prototypes in Figma with accessibility testing</p>
                         </div>
                         <div class="bg-white rounded-2xl p-6 text-center card-hover">
-                            <div class="text-4xl mb-4">🔄</div>
+                            <div class="h-16 mb-4 flex items-center justify-center">
+                                <!-- Replace with your iteration process image -->
+                                <img src="iteration-process.jpg" alt="Iteration Process" class="w-12 h-12 object-cover rounded-lg" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <div class="text-4xl hidden">🔄</div>
+                            </div>
                             <h4 class="font-bold mb-3 text-gray-800">Iteration</h4>
                             <p class="text-gray-600 text-sm">User testing, feedback integration, and continuous improvement</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Before/After Showcase -->
+                <div class="bg-white rounded-3xl p-8 mb-12">
+                    <h3 class="text-3xl font-bold mb-8 text-center text-gray-800">Before & After</h3>
+                    <div class="grid md:grid-cols-2 gap-8 mb-12">
+                        <div>
+                            <h4 class="text-xl font-bold mb-4 text-gray-800">Before</h4>
+                            <div class="bg-gray-100 rounded-2xl h-64 flex items-center justify-center overflow-hidden">
+                                <!-- Replace with your before image -->
+                                <img src="nuit-blanche-before.jpg" alt="Nuit Blanche Website Before Redesign" class="w-full h-full object-cover rounded-2xl" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="text-gray-500 text-lg hidden">Original Design</div>
+                            </div>
+                            <p class="text-gray-600 text-sm mt-4">Limited accessibility, poor mobile experience, difficult navigation</p>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-4 text-gray-800">After</h4>
+                            <div class="bg-gradient-to-br from-indigo-100 to-purple-100 rounded-2xl h-64 flex items-center justify-center overflow-hidden">
+                                <!-- Replace with your after image -->
+                                <img src="nuit-blanche-after.jpg" alt="Nuit Blanche Website After Redesign" class="w-full h-full object-cover rounded-2xl" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="text-purple-600 text-lg hidden">Enhanced Design</div>
+                            </div>
+                            <p class="text-gray-600 text-sm mt-4">WCAG 2.1 compliant, mobile-first design, intuitive navigation</p>
                         </div>
                     </div>
                 </div>
@@ -297,8 +429,23 @@
                     
                     <!-- Word Guess Game -->
                     <div class="bg-gray-50 rounded-2xl p-6 card-hover">
-                        <div class="bg-gradient-to-br from-green-400 to-blue-500 rounded-xl h-32 mb-4 flex items-center justify-center text-white text-3xl">
-                            🎯
+                        <div class="bg-gradient-to-br from-green-400 to-blue-500 rounded-xl h-32 mb-4 flex items-center justify-center overflow-hidden">
+                            <svg viewBox="0 0 120 120" class="w-20 h-20">
+                                <defs>
+                                    <linearGradient id="wordGameGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.9" />
+                                        <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.7" />
+                                    </linearGradient>
+                                </defs>
+                                <circle cx="60" cy="60" r="50" fill="url(#wordGameGrad)"/>
+                                <rect x="30" y="40" width="60" height="8" rx="4" fill="#10b981"/>
+                                <rect x="35" y="52" width="50" height="8" rx="4" fill="#3b82f6"/>
+                                <rect x="40" y="64" width="40" height="8" rx="4" fill="#8b5cf6"/>
+                                <circle cx="60" cy="25" r="8" fill="#fbbf24"/>
+                                <text x="60" y="30" text-anchor="middle" fill="white" font-size="12" font-weight="bold">W</text>
+                                <circle cx="25" cy="60" r="6" fill="#ef4444"/>
+                                <circle cx="95" cy="60" r="6" fill="#06b6d4"/>
+                            </svg>
                         </div>
                         <h3 class="text-xl font-bold mb-3 text-gray-800">Word Guess Game</h3>
                         <p class="text-gray-600 mb-4 text-sm">JavaScript-based word guessing game with DOM manipulation, regex validation, and interactive user feedback system.</p>
@@ -311,8 +458,23 @@
 
                     <!-- Mood Recipe App -->
                     <div class="bg-gray-50 rounded-2xl p-6 card-hover">
-                        <div class="bg-gradient-to-br from-pink-400 to-red-500 rounded-xl h-32 mb-4 flex items-center justify-center text-white text-3xl">
-                            🍽️
+                        <div class="bg-gradient-to-br from-pink-400 to-red-500 rounded-xl h-32 mb-4 flex items-center justify-center overflow-hidden">
+                            <svg viewBox="0 0 120 120" class="w-20 h-20">
+                                <defs>
+                                    <linearGradient id="recipeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.9" />
+                                        <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.7" />
+                                    </linearGradient>
+                                </defs>
+                                <circle cx="60" cy="60" r="50" fill="url(#recipeGrad)"/>
+                                <ellipse cx="60" cy="45" rx="25" ry="15" fill="#f97316"/>
+                                <rect x="50" y="60" width="20" height="25" fill="#dc2626"/>
+                                <ellipse cx="60" cy="85" rx="30" ry="8" fill="#7c2d12"/>
+                                <circle cx="45" cy="40" r="3" fill="#fbbf24"/>
+                                <circle cx="75" cy="40" r="3" fill="#10b981"/>
+                                <circle cx="60" cy="35" r="2" fill="#ef4444"/>
+                                <path d="M45 25 Q60 15 75 25" stroke="#8b5cf6" stroke-width="2" fill="none"/>
+                            </svg>
                         </div>
                         <h3 class="text-xl font-bold mb-3 text-gray-800">Mood-Based Recipe App</h3>
                         <p class="text-gray-600 mb-4 text-sm">Personalized recipe suggestions based on user mood and time of day, using TheMealDB API and localStorage.</p>
@@ -325,8 +487,24 @@
 
                     <!-- Museum Locator -->
                     <div class="bg-gray-50 rounded-2xl p-6 card-hover">
-                        <div class="bg-gradient-to-br from-purple-400 to-indigo-500 rounded-xl h-32 mb-4 flex items-center justify-center text-white text-3xl">
-                            🏛️
+                        <div class="bg-gradient-to-br from-purple-400 to-indigo-500 rounded-xl h-32 mb-4 flex items-center justify-center overflow-hidden">
+                            <svg viewBox="0 0 120 120" class="w-20 h-20">
+                                <defs>
+                                    <linearGradient id="museumGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.9" />
+                                        <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.7" />
+                                    </linearGradient>
+                                </defs>
+                                <circle cx="60" cy="60" r="50" fill="url(#museumGrad)"/>
+                                <rect x="25" y="75" width="70" height="15" fill="#4f46e5"/>
+                                <rect x="35" y="45" width="8" height="30" fill="#6366f1"/>
+                                <rect x="48" y="45" width="8" height="30" fill="#6366f1"/>
+                                <rect x="61" y="45" width="8" height="30" fill="#6366f1"/>
+                                <rect x="74" y="45" width="8" height="30" fill="#6366f1"/>
+                                <polygon points="30,45 60,25 90,45" fill="#8b5cf6"/>
+                                <rect x="55" y="55" width="10" height="20" fill="#1e40af"/>
+                                <circle cx="60" cy="35" r="4" fill="#fbbf24"/>
+                            </svg>
                         </div>
                         <h3 class="text-xl font-bold mb-3 text-gray-800">Museum Locator App</h3>
                         <p class="text-gray-600 mb-4 text-sm">Full-stack MVC application with Entity Framework, SQL Server, user feedback system, and admin controls.</p>
@@ -339,8 +517,26 @@
 
                     <!-- Catch the Insect Game -->
                     <div class="bg-gray-50 rounded-2xl p-6 card-hover">
-                        <div class="bg-gradient-to-br from-green-400 to-teal-500 rounded-xl h-32 mb-4 flex items-center justify-center text-white text-3xl">
-                            🐛
+                        <div class="bg-gradient-to-br from-green-400 to-teal-500 rounded-xl h-32 mb-4 flex items-center justify-center overflow-hidden">
+                            <svg viewBox="0 0 120 120" class="w-20 h-20">
+                                <defs>
+                                    <linearGradient id="insectGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.9" />
+                                        <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.7" />
+                                    </linearGradient>
+                                </defs>
+                                <circle cx="60" cy="60" r="50" fill="url(#insectGrad)"/>
+                                <ellipse cx="60" cy="55" rx="15" ry="25" fill="#10b981"/>
+                                <circle cx="60" cy="40" r="12" fill="#059669"/>
+                                <ellipse cx="45" cy="35" rx="8" ry="15" fill="#34d399" opacity="0.7"/>
+                                <ellipse cx="75" cy="35" rx="8" ry="15" fill="#34d399" opacity="0.7"/>
+                                <ellipse cx="35" cy="50" rx="6" ry="12" fill="#6ee7b7" opacity="0.6"/>
+                                <ellipse cx="85" cy="50" rx="6" ry="12" fill="#6ee7b7" opacity="0.6"/>
+                                <circle cx="55" cy="35" r="2" fill="#1f2937"/>
+                                <circle cx="65" cy="35" r="2" fill="#1f2937"/>
+                                <line x1="50" y1="45" x2="45" y2="50" stroke="#047857" stroke-width="2"/>
+                                <line x1="70" y1="45" x2="75" y2="50" stroke="#047857" stroke-width="2"/>
+                            </svg>
                         </div>
                         <h3 class="text-xl font-bold mb-3 text-gray-800">Catch the Insect Game</h3>
                         <p class="text-gray-600 mb-4 text-sm">Interactive mini-game with dynamic DOM updates, score tracking, and progressive difficulty levels.</p>
@@ -353,8 +549,24 @@
 
                     <!-- Ping Pong Game -->
                     <div class="bg-gray-50 rounded-2xl p-6 card-hover">
-                        <div class="bg-gradient-to-br from-orange-400 to-red-500 rounded-xl h-32 mb-4 flex items-center justify-center text-white text-3xl">
-                            🏓
+                        <div class="bg-gradient-to-br from-orange-400 to-red-500 rounded-xl h-32 mb-4 flex items-center justify-center overflow-hidden">
+                            <svg viewBox="0 0 120 120" class="w-20 h-20">
+                                <defs>
+                                    <linearGradient id="pingpongGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.9" />
+                                        <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.7" />
+                                    </linearGradient>
+                                </defs>
+                                <circle cx="60" cy="60" r="50" fill="url(#pingpongGrad)"/>
+                                <rect x="20" y="55" width="80" height="10" rx="5" fill="#059669"/>
+                                <rect x="25" y="35" width="6" height="30" fill="#dc2626"/>
+                                <rect x="89" y="35" width="6" height="30" fill="#dc2626"/>
+                                <circle cx="60" cy="45" r="8" fill="#fbbf24"/>
+                                <path d="M40 75 Q50 70 60 75 Q70 80 80 75" stroke="#6366f1" stroke-width="3" fill="none"/>
+                                <circle cx="35" cy="25" r="3" fill="#10b981"/>
+                                <circle cx="85" cy="25" r="3" fill="#ef4444"/>
+                                <rect x="58" y="57" width="4" height="6" fill="#374151"/>
+                            </svg>
                         </div>
                         <h3 class="text-xl font-bold mb-3 text-gray-800">Ping Pong Game with Power-ups</h3>
                         <p class="text-gray-600 mb-4 text-sm">Classic 2D game with Canvas, power-up effects, sudden death mode, and dynamic gameplay features.</p>
@@ -454,7 +666,21 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-3 gap-8">
                 <div>
-                    <h3 class="text-2xl font-bold mb-4">Saumil Patel</h3>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <svg viewBox="0 0 40 40" class="w-8 h-8">
+                            <defs>
+                                <linearGradient id="footerLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <rect width="40" height="40" rx="8" fill="url(#footerLogoGrad)"/>
+                            <text x="20" y="28" text-anchor="middle" fill="white" font-size="18" font-weight="bold" font-family="Arial, sans-serif">SP</text>
+                            <circle cx="30" cy="10" r="3" fill="rgba(255,255,255,0.3)"/>
+                            <circle cx="10" cy="30" r="2" fill="rgba(255,255,255,0.2)"/>
+                        </svg>
+                        <h3 class="text-2xl font-bold">Saumil Patel</h3>
+                    </div>
                     <p class="text-gray-400">Full Stack Developer & UX Designer passionate about creating accessible, impactful digital experiences.</p>
                 </div>
                 <div>
@@ -485,6 +711,160 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'964ddfd2763febb4',t:'MTc1MzQ2OTc1NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+    <script>
+        // Typewriter effect for hero section
+        const roles = ['Full-Stack Developer', 'UX Designer', 'Project Manager'];
+        let currentRole = 0;
+        let currentChar = 0;
+        let isDeleting = false;
+
+        function typeWriter() {
+            const typewriterElement = document.getElementById('typewriter');
+            
+            if (!typewriterElement) {
+                setTimeout(typeWriter, 100);
+                return;
+            }
+            
+            const currentText = roles[currentRole];
+            
+            if (isDeleting) {
+                typewriterElement.textContent = currentText.substring(0, currentChar - 1);
+                currentChar--;
+            } else {
+                typewriterElement.textContent = currentText.substring(0, currentChar + 1);
+                currentChar++;
+            }
+
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && currentChar === currentText.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && currentChar === 0) {
+                isDeleting = false;
+                currentRole = (currentRole + 1) % roles.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(typeWriter, typeSpeed);
+        }
+
+        // Smooth scrolling function
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
+        // Mobile menu toggle
+        function initializeMobileMenu() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        }
+
+        // Navigation smooth scrolling
+        function initializeNavigation() {
+            const navLinks = document.querySelectorAll('nav a[href^="#"]');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            navLinks.forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const target = document.getElementById(targetId);
+                    
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                    
+                    if (mobileMenu) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+        }
+
+        // Contact form handler
+        function initializeContactForm() {
+            const contactForm = document.querySelector('#contact form');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const name = this.querySelector('input[type="text"]').value;
+                    const email = this.querySelector('input[type="email"]').value;
+                    const message = this.querySelector('textarea').value;
+                    
+                    if (!name || !email || !message) {
+                        alert('Please fill in all fields.');
+                        return;
+                    }
+                    
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email)) {
+                        alert('Please enter a valid email address.');
+                        return;
+                    }
+                    
+                    alert(`Thank you, ${name}! Your message has been received. I'll get back to you at ${email} soon.`);
+                    this.reset();
+                });
+            }
+        }
+
+        // Scroll animations
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('.section-fade');
+            const windowHeight = window.innerHeight;
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Initialize everything when DOM loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Start typewriter immediately
+            setTimeout(typeWriter, 500);
+            
+            // Initialize other components
+            initializeMobileMenu();
+            initializeNavigation();
+            initializeContactForm();
+            handleScrollAnimations();
+        });
+
+        // Handle scroll events
+        window.addEventListener('scroll', handleScrollAnimations);
+
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 768) {
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (mobileMenu) {
+                    mobileMenu.classList.add('hidden');
+                }
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'964e0bf43678ab0c',t:'MTc1MzQ3MTU2My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
